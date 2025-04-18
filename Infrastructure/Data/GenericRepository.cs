@@ -70,9 +70,17 @@ public class GenericRepository<T>(StoreContext context)
         return await ApplySpecification<TResult>(specification).FirstOrDefaultAsync();
     }
 
-    public async Task<IReadOnlyList<TResult>> ListAsync<TResult>(ISpecification<T, TResult> specification)
+    public async Task<IReadOnlyList<TResult>> ListAsync<TResult>
+                (ISpecification<T, TResult> specification)
     {
         return await ApplySpecification<TResult>(specification).ToListAsync();
 
+    }
+
+    public async Task<int> CountAsync(ISpecification<T> specification)
+    {
+        var query = context.Set<T>().AsQueryable();
+        query = specification.ApplyCriteria(query);
+        return await query.CountAsync();
     }
 }
