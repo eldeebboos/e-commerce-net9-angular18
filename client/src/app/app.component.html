@@ -1,1 +1,9 @@
-<h2 class="text-3xl font-bold underline bg-teal-200">Hello world!</h2>
+<app-header></app-header>
+
+<div class="container mt-6">
+  <ul>
+    @for (p of products; track $index) {
+    <li>{{ p.name }}</li>
+    }
+  </ul>
+</div>
