@@ -25,6 +25,7 @@ import { FormsModule } from '@angular/forms';
     MatButton,
     MatIcon,
     MatMenu,
+
     MatSelectionList,
     MatListOption,
     MatMenuTrigger,
@@ -67,7 +68,7 @@ export class ShopComponent implements OnInit {
     });
   }
 
-  onSearchChange( ) {
+  onSearchChange() {
     this.shopParams.pageNumber = 1; // Reset to first page on search change
     this.getProducts();
   }
