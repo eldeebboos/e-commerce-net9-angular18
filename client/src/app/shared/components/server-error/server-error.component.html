@@ -1,0 +1,16 @@
+<div class="container mt-5 p-4 bg-gray-100 rounded shadow-lg">
+  <div class="text-3xl">Internal Server Error</div>
+  @if (error) {
+  <div class="mt-4">
+    <h5 class="text-red-600">{{ error.message }}</h5>
+    <p class="font-bold mb-2">Error comes from server not client</p>
+  </div>
+
+  <h5 class="text-lg font-semibold mb-2">Stack trace</h5>
+  <mat-card class="p-4 bg-white">
+    <code class="block whitespace-pre-wrap">
+      {{ error.details }}
+    </code>
+  </mat-card>
+  }
+</div>
